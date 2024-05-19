@@ -1,3 +1,5 @@
+#Requires AutoHotkey v1.1
+
 ;----------------------------------------------------------------------
 ; version 0.1 - Going to start it from here, because this fork now 
 ; shares basically no code with the original project.
@@ -62,9 +64,8 @@ filters := []
 ; Add folders containing files or shortcuts you'd like to show in the list.
 ; Enter new paths as an array
 ; todo: show file extensions/path in the list, etc.
-; shortCutFolders := []
 ; shortcutFolders := [A_StartMenu, A_StartMenuCommon, A_Desktop, A_DesktopCommon]
-shortcutFolders := [A_StartMenu, A_StartMenuCommon, A_Desktop, A_DesktopCommon]
+shortcutFolders := []
 
 ; how far to search into sub-folders for the above shortcut folders
 ; depending on the shortcut folder, setting this too high will probably increase
@@ -294,10 +295,9 @@ onEnd(ihook) {
 }
 ;----------------------------------------------------------------------
 ;
-; Capslock to activate (feel free to change if desired)
+; Windows+Space to activate (feel free to change if desired)
 ;
-; #space::
-$CapsLock::
+#Space::
 ShowSwitcher() {
   global
   if !initialLoadComplete
